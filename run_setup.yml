@@ -1,0 +1,53 @@
+---
+  - hosts: localhost
+    connection: local
+    gather_facts: False
+    roles:
+      - ec2_create
+
+
+    tasks:
+      - name: refresh_inventory
+        meta: refresh_inventory
+      - name: pause for one minute
+        pause:
+         minutes: 1
+
+
+  - hosts : webservers
+
+    remote_user: "{{remote_user_web_servers}}"
+    become: true
+    gather_facts: yes
+    become_method: sudo
+    vars:
+      ansible_python_interpreter: /usr/bin/python3
+
+    roles :
+
+       - mysql_create
+       - flask_setup
+
+
+
+
+  - hosts : all
+  
+    remote_user: "{{remote_user_monitoring_server}}"
+    become: true
+    gather_facts: yes
+    become_method: sudo
+  
+  
+  
+    roles:
+    # this is the Ansible Galaxy name, you could change it to Ansible-Nagios if directly downloading from github
+        - {role: 'nagios_install', run_nagios_client: true}
+  
+  
+  - hosts: monitoring-servers
+    become: true
+    remote_user: "{{remote_user_monitoring_server}}"
+  
+    roles:
+        - {role: 'nagios_install', run_nagios_server: true}

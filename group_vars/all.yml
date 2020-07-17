@@ -1,0 +1,44 @@
+---
+# users:
+#   - username: saireddyavs
+#     name: Venkata Sai Reddy
+#     groups: ['sysadmin']
+#     uid: 1001
+#     ssh_key:
+#       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCszNmo+Udtp8aGh4a40/+A6wvVQHPd8qHfpTtMtfBrCxYU9WAfKB4RL7Ob94PQ67CfT7StWsS5+qZTBsULtnQVN3J+nIfm6KK0DzZf39EWPn8UVQCkewwVdjrQgLi4PMRCGE/SbMdsuXTTc6Gc1JOe6s8vIXXOWCim4GBL3H2gtvNUtMGCuaczzj6KhAmnMjoymkwj0jzJNmOty55E4jfM+T+RumvDvOTuYRa92F+0zSPgtsklQR7hqD47es8ZRKGROjVzRJ+NR7fGzpv41FE7oYHFUTCG57X8KHuQQ3Svu3BR+3riY+xnAx6o+GAxjoH+aM6HytP4T+klpZ0r/lfKM876t7/gLUhfK6jRL6xYtpsvgSxShMM+3h6r4Dp8YvxKZw6f7bNiHR74OfR1CojTMoQikrxt6ShPS4KcOhWrtnaRRcr89qipZUz4gRiyR1X7jn4okgs1nF93sryQ2txQkVDbB6KnXbXBYGG6QBdemzFeRbzQ+Rd34IA7YWj0fyE= nandarc@saireddy"
+
+#     htpasswd: $apr1$zc8uFv31$zyJhKoCOWSkUASexBKvE71
+#     nagios:
+#         pager: "avulurivenkatasaireddy@gmail.com"
+#         email: "avulurivenkatasaireddy@gmail.com"
+
+nagios_users:
+  - user: nagiosadmin
+    pass: password
+
+packages_needed:
+
+
+   - nginx
+   - gunicorn3
+   - python-flask
+   - python
+   - build-essential
+   - python-dev
+   - libpq-dev
+   - git
+   - python-setuptools
+   - libmysqlclient-dev
+   - python3-pip
+   - mysql-server
+
+
+remote_user_web_servers: ubuntu
+
+remote_user_monitoring_server: ubuntu
+
+
+
+
+
+
