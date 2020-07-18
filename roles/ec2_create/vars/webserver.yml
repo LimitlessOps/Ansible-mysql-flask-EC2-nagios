@@ -2,7 +2,7 @@
 # vars file for ec2_create
 
 
-keypair: ansible_india
+keypair: jenkins_ubuntu
 
 security_group : flask_servers
 
