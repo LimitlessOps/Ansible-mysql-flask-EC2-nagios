@@ -21,6 +21,8 @@
             state: absent
         - name: Create a security group
           ec2_group:
+            aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+            aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
             name: "{{ security_group }}"
             description: The webservers security group
             region: "{{ region }}"
@@ -46,6 +48,8 @@
         - name: Launch the new EC2 Instance
           ec2:
             key_name : "{{keypair}}"
+            aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+            aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
 
             group: "{{ security_group }}"
             instance_type: "{{ instance_type }}"
@@ -108,6 +112,8 @@
         - name: Launch the new EC2 Instance
           ec2:
             key_name : "{{keypair}}"
+            aws_access_key: "{{ lookup('env', 'AWS_ACCESS_KEY') }}"
+            aws_secret_key: "{{ lookup('env', 'AWS_SECRET_KEY') }}"
 
             group: "{{ security_group }}"
             instance_type: "{{ instance_type }}"
