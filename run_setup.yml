@@ -5,6 +5,7 @@
 
   - hosts: localhost
     connection: local
+    become: true
     gather_facts: False
     roles:
       - { role: ec2_create , when: run_environment=='AWS' }
