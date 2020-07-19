@@ -1,14 +1,11 @@
 ---
 # tasks file for docker
       
-    - name: install certain python modules for docker
+ 
+    - name: install pip docker depedency
       pip:
-        name: "{{ item.name }}"
-        version: "{{ item.version }}"
-        state: present
-      with_items:
-        - { name: docker, version: 2.0.0 }
-        - { name: docker-py, version: 1.10.6 }
+        name: docker
+        state:  present
 
 
 
@@ -18,5 +15,6 @@
         project_src: "{{ role_path }}/files"
       register: output
 
-    - debug:
+    - name: debugging docker compose 
+      debug:
         var: output
