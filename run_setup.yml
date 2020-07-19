@@ -1,10 +1,14 @@
 ---
+  - name: For installing docker-compose on localhost
+    include: localhost_docker.yml
+    when: run_environment=='Docker'
+
   - hosts: localhost
     connection: local
     gather_facts: False
     roles:
       - { role: ec2_create , when: run_environment=='AWS' }
-      - { role: docker}
+      - { role: docker, when: run_environment=='Docker'}
 
 
     tasks:
@@ -26,8 +30,8 @@
 
     roles :
 
-       - mysql_create
-       - flask_setup
+       - { role: mysql_create , when: run_environment=='AWS' }
+       - {role: flask_setup, when: run_environment=='AWS' }
 
 
 
@@ -43,7 +47,7 @@
   
     roles:
     # this is the Ansible Galaxy name, you could change it to Ansible-Nagios if directly downloading from github
-        - {role: 'nagios_install', run_nagios_client: true}
+        - {role: 'nagios_install', run_nagios_client: true , when: run_environment=='AWS' }
   
   
   - hosts: monitoring-servers
@@ -51,4 +55,4 @@
     remote_user: "{{remote_user_monitoring_server}}"
   
     roles:
-        - {role: 'nagios_install', run_nagios_server: true}
+        - {role: 'nagios_install', run_nagios_server: true , when: run_environment=='AWS' }
