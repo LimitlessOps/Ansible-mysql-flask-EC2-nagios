@@ -3,7 +3,8 @@
     connection: local
     gather_facts: False
     roles:
-      - ec2_create
+      - { role: ec2_create , when: run_environment=='AWS' }
+      - { role: docker}
 
 
     tasks:

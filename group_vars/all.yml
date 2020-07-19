@@ -26,6 +26,8 @@ remote_user_web_servers: ubuntu
 
 remote_user_monitoring_server: ubuntu
 
+run_environment: "{{ env_to_run | default('AWS') }}"
+
 
 
 
