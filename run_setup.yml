@@ -7,6 +7,8 @@
     connection: local
     become: true
     gather_facts: False
+    vars:
+      ansible_python_interpreter: /usr/bin/python3
     roles:
       - { role: ec2_create , when: run_environment=='AWS' }
       - { role: docker, when: run_environment=='Docker'}
