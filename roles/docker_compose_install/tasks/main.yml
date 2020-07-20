@@ -98,6 +98,8 @@
 - docker_image:
     name: hello-world
     source: pull
+  become: true
 - docker_container:
     name: hello-world
     state: started
+  become: true
