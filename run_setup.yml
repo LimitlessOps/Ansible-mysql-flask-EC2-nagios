@@ -1,18 +1,11 @@
 ---
-  # - name: For installing docker-compose on localhost
-  #   include: localhost_docker.yml
-  #   when: run_environment=='Docker'
+  - name: For installing docker-compose on localhost
+    include: localhost_docker.yml
+    when: run_environment=='Docker'
 
   - hosts: localhost
     connection: local
-    gather_facts: False
-    vars:
-      ansible_python_interpreter: /usr/bin/python3
-    roles:
-      - { role: docker_compose_install, when: run_environment=='Docker'}
-
-  - hosts: localhost
-    connection: local
+    become: true
     gather_facts: False
     vars:
       ansible_python_interpreter: /usr/bin/python3
