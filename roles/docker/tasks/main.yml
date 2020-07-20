@@ -2,10 +2,7 @@
 # tasks file for docker
       
  
-    - name: install pip docker depedency
-      pip:
-        name: docker
-        state:  present
+
 
 
 
