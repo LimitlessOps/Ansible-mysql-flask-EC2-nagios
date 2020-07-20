@@ -10,7 +10,7 @@
     - name: Create and start services
       # docker_compose:
       #   project_src: "{{ role_path }}/files"
-      shell: sudo docker-compose up
+      shell: sudo docker-compose -f "{{ role_path }}"/files/docker-compose.yml  up
       register: output
 
     - name: debugging docker compose 
