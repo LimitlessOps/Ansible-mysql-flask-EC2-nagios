@@ -8,8 +8,9 @@
 
 
     - name: Create and start services
-      docker_compose:
-        project_src: "{{ role_path }}/files"
+      # docker_compose:
+      #   project_src: "{{ role_path }}/files"
+      shell: sudo docker-compose up
       register: output
 
     - name: debugging docker compose 
