@@ -11,6 +11,13 @@ Deploy any number of EC2 Sample flask web servers with  mysql  and Extra EC2 ins
 
 > So modify    ```ec2_create``` role according to your usage
 
+* ssh setup is required. for making chnages in EC2 instances.
+
+* ```ssh-keygen```  for creating new ssh keys. Accept the default values, and no passphrase, if it prompts you to add the new keys to the home directory, without overwriting existing ones.
+* Now in AWS EC2 keypairs section create a new keypair using ```import key pair``` option which is present in ```Actions``` and copy paste the content in ```cat .ssh/id_rsa.pub```.
+* Change key-pair name accordingly in ```roles/vars/ec2_create``` the default key pair name i have used is ```jenkins_ubuntu```.
+* or else if you are familiar with AWS-CLI you can use ```aws ec2 import-key-pair --key-name "your'e key name" --public-key-material fileb://~/.ssh/id_rsa.pub```
+
 ## Required
 
 * You need to provide the git hub repo link where you flask application has present.
@@ -28,7 +35,7 @@ Deploy any number of EC2 Sample flask web servers with  mysql  and Extra EC2 ins
 * make sure you have ssh setup fot jenkins, if not follow below procedure.
 * ```su -s /bin/bash jenkins``` then recheck the user using ```whoami```  and ```echo $HOME```
 * ```ssh-keygen``` for creating new ssh keys. Accept the default values, and no passphrase, if it prompts you to add the new keys to the home directory, without overwriting existing ones.
-* Now in AWS EC2 keypairs section create a new keypair using ```import key pair``` option which is present in ```Actions```.
+* Now in AWS EC2 keypairs section create a new keypair using ```import key pair``` option which is present in ```Actions``` and copy paste the content in ```cat .ssh/id_rsa.pub```.
 * Change key-pair name accordingly in ```roles/vars/ec2_create``` the default key pair name i have used is ```jenkins_ubuntu```.
 
 
