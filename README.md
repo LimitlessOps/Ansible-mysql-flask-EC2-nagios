@@ -24,11 +24,23 @@ Deploy any number of EC2 Sample flask web servers with  mysql  and Extra EC2 ins
 * make sure that there is a ```.sql``` file for ```Tables``` creation.
 * The name of python file should be ```app.py```
 * make Modification's to nagios also , you are free to add notification alerts.
+
+## Nagios
 * The default nagios credintials are:
     * user_name: nagiosadmin and password is password itslef.
 * you cann add any name and password, and you can change monitoring thresholds.
 
 * The code works for all linux Distributions of your'e choice in AWS AMI like Ubuntu,CentOS, RedHat etc..,
+
+### steps to run
+* clone the repo:  ```git clone https://github.com/saireddyavs/Ansible-mysql-flask-EC2-nagios.git```.
+* make changes to default variables like key-pair etc..
+* The code works for all linux Distributions of your'e choice in AWS AMI like Ubuntu,CentOS, RedHat etc..,
+* For running the code in AWS EC2 instances: ``` ansible-playbook run_setup.yml```.
+* you can see your web-application using, copy pasting ```public_ip ``` of your any of your web-servers as the URL in browser.
+* for Nagios , copy pasting ```public_ip/nagios``` as the URL in browser,here   ```public_ip``` refers to ip of nagios-server.
+ You can login  with ```username:nagiosadmin and password:password```  to monitor all your web-servers.
+
 
 
 ## For Jenkins
