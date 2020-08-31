@@ -57,7 +57,7 @@
       - ::1
       - localhost
 
-  - name: Create a new database with name 'bobdata'
+  - name: Create a new database with name 'example'
     mysql_db:
         name: "{{database_name}}"
         state: present

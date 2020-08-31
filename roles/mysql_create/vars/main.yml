@@ -3,7 +3,7 @@
 
 mysql_root_password: password
 
-database_name: Gym
+database_name: example
 
 database_file_name: gym.sql # added in github 
 
