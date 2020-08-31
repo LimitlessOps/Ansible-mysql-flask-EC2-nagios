@@ -1,7 +1,7 @@
 
 ## Details
 
-Deploy any number of EC2 Sample flask web servers with  mysql  and Extra EC2 instanc which monitor all web servers.
+Deploy any number of EC2 Sample flask web servers with  mysql  and Extra EC2 instance which monitor all web servers.
 
 ## AWS credintials
 
@@ -11,7 +11,7 @@ Deploy any number of EC2 Sample flask web servers with  mysql  and Extra EC2 ins
 
 > So modify    ```ec2_create``` role according to your usage
 
-* ssh setup is required. for making chnages in EC2 instances.
+* ssh setup is required. for making changes in EC2 instances.
 
 * ```ssh-keygen```  for creating new ssh keys. Accept the default values, and no passphrase, if it prompts you to add the new keys to the home directory, without overwriting existing ones.
 * Now in AWS EC2 keypairs section create a new keypair using ```import key pair``` option which is present in ```Actions``` and copy paste the content in ```cat .ssh/id_rsa.pub```.
